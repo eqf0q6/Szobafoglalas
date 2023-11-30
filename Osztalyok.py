@@ -24,3 +24,15 @@ class KetagyasSzoba(Szoba):
 
     def info(self):
         return f"Kétágyas Szoba - Szobaszám: {self.szobaszam}, Ár: {self.ar}, Ágyak száma: {self.agyak_szama}"
+
+class Szalloda:
+    def __init__(self, nev):
+        self.nev = nev
+        self.szobak = []
+
+    def szoba_hozzaadas(self, szoba):
+        self.szobak.append(szoba)
+
+    def szobak_listazasa(self):
+        for szoba in self.szobak:
+            print(szoba.info())
