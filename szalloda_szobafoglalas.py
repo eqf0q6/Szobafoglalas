@@ -77,3 +77,33 @@ class Foglalas:
         return f"Foglaló neve: {self.foglalo_neve}, Szoba: {self.szoba.szobaszam}, Dátum: {self.datum}"
 
 
+def main_menu(szalloda):
+    while True:
+        print("Üdvözöljük szállodánkban!")
+        print("1. Szoba foglalása")
+        print("2. Foglalás lemondása")
+        print("3. Foglalások listázása")
+        print("4. Kilépés")
+
+        valasztas = input("Kérjük, válasszon egy opciót: ")
+
+        if valasztas == '1':
+            foglalo_neve = input("Foglaló neve: ")
+            szobaszam = input("Szoba száma: ")
+            datum = input("Dátum (YYYY-MM-DD formátumban): ")
+            print(szalloda.szoba_foglalas(foglalo_neve, szobaszam, datum))
+
+        elif valasztas == '2':
+            foglalo_neve = input("Foglaló neve: ")
+            szobaszam = input("Szoba száma: ")
+            datum = input("Dátum (YYYY-MM-DD formátumban): ")
+            print(szalloda.foglalas_lemondas(foglalo_neve, szobaszam, datum))
+
+        elif valasztas == '3':
+            szalloda.foglalasok_listazasa()
+
+        elif valasztas == '4':
+            print("Köszönjük, hogy minket választott")
+            break
+        else:
+            print("Érvénytelen választás, kérjük próbálja újra!")
