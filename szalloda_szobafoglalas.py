@@ -37,6 +37,19 @@ class Szalloda:
         for szoba in self.szobak:
             print(szoba.info)
 
+    def szoba_foglalas(self, foglalo_neve, szobaszam, datum):
+        for foglalas in self.foglalasok:
+            if foglalas.szoba.szobaszam == szobaszam and foglalas.datum == datum:
+                return f"A szoba ({szobaszam}) már foglalt ezen a dátumon: {datum}"
+
+        szoba = next((szoba for szoba in self.szobak if szoba.szobaszam == szobaszam), None)
+        if szoba is None:
+            return f"Nincs ilyen szobaszám: {szobaszam}"
+
+        uj_foglalas = Foglalas(foglalo_neve, szoba, datum)
+        self.foglalasok.append(uj_foglalas)
+        return f"Foglalás megerősítve: {uj_foglalas.info()}, Ár: {szoba.ar}"
+
 class Foglalas:
     def __init__(self, foglalo_neve, szoba, datum):
         self.foglalo_neve = foglalo_neve
