@@ -27,6 +27,7 @@ class KetagyasSzoba(Szoba):
 
 class Szalloda:
     def __init__(self, nev):
+        self.foglalasok = None
         self.nev = nev
         self.szobak = []
 
@@ -49,6 +50,16 @@ class Szalloda:
         uj_foglalas = Foglalas(foglalo_neve, szoba, datum)
         self.foglalasok.append(uj_foglalas)
         return f"Foglalás megerősítve: {uj_foglalas.info()}, Ár: {szoba.ar}"
+
+    def foglalas_lemondas(self, foglalo_neve, szobaszam, datum):
+        for i, foglalas in enumerate(self.foglalasok):
+            if foglalas.foglalo_neve == foglalo_neve and foglalas.szoba.szobaszam == szobaszam and foglalas.datum == datum:
+                del self.foglalasok[i]
+                return f"Foglalás lemondva: {foglalo_neve}, Szoba: {szobaszam}, Dátum: {datum}"
+
+        return "Nincs ilyen foglalás."
+    
+    
 
 class Foglalas:
     def __init__(self, foglalo_neve, szoba, datum):
