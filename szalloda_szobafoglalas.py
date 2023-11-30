@@ -58,7 +58,13 @@ class Szalloda:
                 return f"Foglalás lemondva: {foglalo_neve}, Szoba: {szobaszam}, Dátum: {datum}"
 
         return "Nincs ilyen foglalás."
-    
+
+    def foglalasok_listazasa(self):
+        if not self.foglalasok:
+            return "Jelenleg nincsenek foglalások."
+
+        for foglalas in self.foglalasok:
+            print(foglalas.info())
     
 
 class Foglalas:
