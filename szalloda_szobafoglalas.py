@@ -53,7 +53,9 @@ class Szalloda:
 
     def foglalas_lemondas(self, foglalo_neve, szobaszam, datum):
         for i, foglalas in enumerate(self.foglalasok):
-            if foglalas.foglalo_neve == foglalo_neve and foglalas.szoba.szobaszam == szobaszam and foglalas.datum == datum:
+            if foglalas.foglalo_neve == foglalo_neve and \
+                    foglalas.szoba.szobaszam == szobaszam and \
+                    foglalas.datum == datum:
                 del self.foglalasok[i]
                 return f"Foglalás lemondva: {foglalo_neve}, Szoba: {szobaszam}, Dátum: {datum}"
 
