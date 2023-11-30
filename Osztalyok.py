@@ -35,4 +35,15 @@ class Szalloda:
 
     def szobak_listazasa(self):
         for szoba in self.szobak:
-            print(szoba.info())
+            print(szoba.info)
+
+class Foglalas:
+    def __init__(self, foglalo_neve, szoba, datum):
+        self.foglalo_neve = foglalo_neve
+        self.szoba = szoba
+        self.datum = datum
+
+    def info(self):
+        return f"Foglaló neve: {self.foglalo_neve}, Szoba: {self.szoba.szobaszam}, Dátum: {self.datum}"
+
+
